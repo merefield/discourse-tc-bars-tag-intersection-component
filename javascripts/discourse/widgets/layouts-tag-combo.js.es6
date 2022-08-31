@@ -27,10 +27,8 @@ export default layouts.createLayoutsWidget('tag-combo', {
   },
 
   html(attrs, state) {
-    const { tags, tagGroups } = attrs;
-    if (tags == null || tags == undefined) return;
-
     const contents = [];
+
     contents.push(
       new RenderGlimmer(
         this,
@@ -38,7 +36,8 @@ export default layouts.createLayoutsWidget('tag-combo', {
         hbs`<TagChooser @id="list-with-tags"  @tags={{@data.chosen}} @onChange={{action @data.onChangeUpdateTagSet}}/>
         <button onClick={{@data.actionForClick}} label="blah"/>`,
         {
-          chosen: this.state.chosen,
+          ...attrs,
+          chosen: state.chosen,
           onChangeUpdateTagSet: this.onChangeUpdateTagSet,
           actionForClick: this.actionForClick,
         }
