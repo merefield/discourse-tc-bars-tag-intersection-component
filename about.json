@@ -1,0 +1,8 @@
+{
+  "name": "Layouts Tag Intersection Widget",
+  "component": true,
+  "authors": "Robert Barrow",
+  "theme_version": "0.01",
+  "about_url": "https://github.com/paviliondev/layouts-tag-intersection-widget",
+  "license_url": "https://github.com/paviliondev/layouts-tag-list-intersection-widget/blob/master/LICENSE.txt"
+}

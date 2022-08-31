@@ -1,0 +1,11 @@
+hidden_tags:
+  type: list
+  list_type: tag
+  default: ''
+  description:
+    en: 'Select specific tags to hide in the control'
+hidden_tag_groups:
+  type: list
+  default: ''
+  description:
+    en: 'Enter the names of the tag groups you wish to hide in the control.'
