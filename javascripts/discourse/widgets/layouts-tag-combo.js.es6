@@ -1,8 +1,6 @@
 import { createWidget } from 'discourse/widgets/widget';
 import { hbs } from "ember-cli-htmlbars";
 import RenderGlimmer from "discourse/widgets/render-glimmer";
-import { bind } from "discourse-common/utils/decorators";
-import { computed, setProperties } from "@ember/object";
 import DiscourseURL from "discourse/lib/url";
 
 let layouts;
@@ -36,7 +34,7 @@ export default layouts.createLayoutsWidget('tag-combo', {
         this,
         "div.tag-chooser-component",
         hbs`<h3>{{@data.componentHeading}}</h3><TagChooser @id="list-with-tags"  @tags={{@data.chosen}} @onChange={{action @data.onChangeUpdateTagSet}}/>
-        <DButton @disabled={{@data.buttonDisabled}} @action={{@data.actionForClick}} @translatedLabel={{@data.buttonLabel}}/><sup>{{@data.componentInstructions}}</sup>`,
+        <DButton @disabled={{@data.buttonDisabled}} @action={{@data.actionForClick}} @translatedLabel={{@data.buttonLabel}}/><sub>{{@data.componentInstructions}}</sub>`,
         {
           ...attrs,
           chosen: state.chosen,

@@ -1,4 +1,4 @@
 en:
   tag_intersect_button_label: "Show Me!"
-  tag_intersect_component_heading: "Tags Intersections"
-  tag_intersect_component_instructions: "Choose at least two tags to see a topic list of relevant Topics"
+  tag_intersect_component_heading: "Tag Intersections"
+  tag_intersect_component_instructions: "Choose at least two tags to see a topic list of Topics that contain all"
