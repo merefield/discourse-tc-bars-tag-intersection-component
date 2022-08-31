@@ -3,6 +3,7 @@ import { hbs } from "ember-cli-htmlbars";
 import RenderGlimmer from "discourse/widgets/render-glimmer";
 import { bind } from "discourse-common/utils/decorators";
 import { computed, setProperties } from "@ember/object";
+import DiscourseURL from "discourse/lib/url";
 
 let layouts;
 
@@ -23,6 +24,7 @@ export default layouts.createLayoutsWidget('tag-combo', {
   defaultState() {
     return {
       chosen: [],
+      button_disabled: true,
     };
   },
 
@@ -33,31 +35,35 @@ export default layouts.createLayoutsWidget('tag-combo', {
       new RenderGlimmer(
         this,
         "div.tag-chooser-component",
-        hbs`<TagChooser @id="list-with-tags"  @tags={{@data.chosen}} @onChange={{action @data.onChangeUpdateTagSet}}/>
-        <button onClick={{@data.actionForClick}} label="blah"/>`,
+        hbs`<h3>{{@data.componentHeading}}</h3><TagChooser @id="list-with-tags"  @tags={{@data.chosen}} @onChange={{action @data.onChangeUpdateTagSet}}/>
+        <DButton @disabled={{@data.buttonDisabled}} @action={{@data.actionForClick}} @translatedLabel={{@data.buttonLabel}}/>`,
         {
           ...attrs,
           chosen: state.chosen,
-          onChangeUpdateTagSet: this.onChangeUpdateTagSet,
-          actionForClick: this.actionForClick,
+          onChangeUpdateTagSet: this.onChangeUpdateTagSet.bind(this),
+          actionForClick: this.actionForClick.bind(this),
+          buttonLabel: I18n.t(themePrefix("tag_intersect_button_label")),
+          componentHeading: I18n.t(themePrefix("tag_intersect_component_heading")),
+          buttonDisabled: state.button_disabled,
         }
       ),
     );
     return contents;
   },
 
-  @bind
   onChangeUpdateTagSet(item, list) {
     let entries = []
     list.map((entry) =>{
       entries.push(entry.name);
     })
     this.state.chosen = entries;
+    this.state.button_disabled = entries.length < 2 ? true : false;
     this.scheduleRerender();
   },
 
-  @bind
   actionForClick () {
-    console.log(this.state.chosen)
-  }
+    console.log(this.state.chosen);
+    let tagSetString = this.state.chosen.join("/");
+    DiscourseURL.routeTo(`/tags/intersection/${tagSetString}`);
+  },
 });

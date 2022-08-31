@@ -1,2 +1,3 @@
 en:
-  button_title: "Navigate"
+  tag_intersect_button_label: "Show Me!"
+  tag_intersect_component_heading: "Combine Tags to Show Intersection"
