@@ -36,7 +36,7 @@ export default layouts.createLayoutsWidget('tag-combo', {
         this,
         "div.tag-chooser-component",
         hbs`<h3>{{@data.componentHeading}}</h3><TagChooser @id="list-with-tags"  @tags={{@data.chosen}} @onChange={{action @data.onChangeUpdateTagSet}}/>
-        <DButton @disabled={{@data.buttonDisabled}} @action={{@data.actionForClick}} @translatedLabel={{@data.buttonLabel}}/>`,
+        <DButton @disabled={{@data.buttonDisabled}} @action={{@data.actionForClick}} @translatedLabel={{@data.buttonLabel}}/><sup>{{@data.componentInstructions}}</sup>`,
         {
           ...attrs,
           chosen: state.chosen,
@@ -44,6 +44,7 @@ export default layouts.createLayoutsWidget('tag-combo', {
           actionForClick: this.actionForClick.bind(this),
           buttonLabel: I18n.t(themePrefix("tag_intersect_button_label")),
           componentHeading: I18n.t(themePrefix("tag_intersect_component_heading")),
+          componentInstructions: I18n.t(themePrefix("tag_intersect_component_instructions")),
           buttonDisabled: state.button_disabled,
         }
       ),
