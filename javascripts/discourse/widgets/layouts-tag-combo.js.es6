@@ -27,9 +27,8 @@ export default layouts.createLayoutsWidget('tag-combo', {
   },
 
   html(attrs, state) {
-    debugger;
     const { tags, tagGroups } = attrs;
-     if (tags == null || tags == undefined) return;
+    if (tags == null || tags == undefined) return;
 
     const contents = [];
     contents.push(
