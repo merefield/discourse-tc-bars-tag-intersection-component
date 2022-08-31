@@ -53,6 +53,7 @@ export default layouts.createLayoutsWidget('tag-combo', {
       entries.push(entry.name);
     })
     this.state.chosen = entries;
+    this.scheduleRerender();
   },
 
   @bind
