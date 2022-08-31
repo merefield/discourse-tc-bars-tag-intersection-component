@@ -1,5 +1,9 @@
 .layouts-tag-combo {
   sub {
-    padding-top:10px;
+    display: inline-block;
+  }
+  
+  #list-with-tags {
+    max-width:280px;
   }
 }
