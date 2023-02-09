@@ -58,7 +58,7 @@ export default {
         tagGroups,
         siteSettings,
       };
-      layouts.addSidebarProps(props);
+      layouts.addSidebarProps(props, container);
     });
   },
 };
