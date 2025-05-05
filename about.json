@@ -1,8 +1,8 @@
 {
-  "name": "Layouts Tag Intersection Widget",
+  "name": "Bars Tag Intersection Chooser",
   "component": true,
   "authors": "Robert Barrow",
-  "theme_version": "0.03",
-  "about_url": "https://github.com/paviliondev/layouts-tag-intersection-widget",
-  "license_url": "https://github.com/paviliondev/layouts-tag-list-intersection-widget/blob/master/LICENSE.txt"
+  "theme_version": "1.0.0",
+  "about_url": "https://github.com/merefield/discourse-tc-bars-tag-intersection-chooser",
+  "license_url": "https://github.com/merefield/discourse-tc-bars-tag-intersection-chooser/blob/master/LICENSE.txt"
 }
